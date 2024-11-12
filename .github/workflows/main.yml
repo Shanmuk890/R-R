@@ -53,6 +53,6 @@ jobs:
           --platform "managed" \
           --allow-unauthenticated \
           --execution-environment gen2 \
-          --add-volume=name=in-memory-1,type=cloud-storage,bucket=rlang \
+          --add-volume=name=in-memory-1,type=cloud-storage,bucket=radd \
           --add-volume-mount=volume=in-memory-1,mount-path=/mnt/volume
       
