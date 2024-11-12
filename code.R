@@ -6,7 +6,15 @@ library(logger)
 # Create the function that sums two numbers
 # This function will be exposed as an API endpoint
 # The numbers will be passed as query parameters
-
+write_to_volume <- function(content) {
+  # Mount path for the volume
+  mount_path <- "/mnt/my-volume/sample-logfile.txt"
+  # Open the file in append mode and write the content
+  file_connection <- file(mount_path, open = "a")
+  writeLines(content, file_connection)
+  close(file_connection)
+  return(paste("Written to", mount_path))
+}
 #* @get /sum
 #* @param a First number
 #* @param b Second number
