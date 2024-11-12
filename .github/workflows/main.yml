@@ -13,7 +13,6 @@ env:
   PROJECT_ID: ${{ secrets.CLOUD_RUN_PROJECT_NAME }}
   REGION: us-central1
   REPO_NAME: symphonize
-  BUCKET_NAME: bucketcloudr
 
 jobs:
   build_and_deploy:
