@@ -6,21 +6,14 @@ library(logger)
 # Create the function that sums two numbers
 # This function will be exposed as an API endpoint
 # The numbers will be passed as query parameters
-write_to_cloud_storage <- function(content) {
-  # Define your Cloud Storage bucket and file path
-  bucket_name <- "radd"
-  
-  # Create a unique file name using a timestamp
-  timestamp <- format(Sys.time(), "%Y-%m-%d_%H-%M-%S")
-  file_path <- paste0("api_logs/sum_result_", timestamp, ".txt")
-  
-  # Convert content to raw vector (this is required for uploading)
-  content_raw <- charToRaw(content)
-  
-  # Upload to Cloud Storage
-  gcs_upload(content_raw, bucket = bucket_name, name = file_path, overwrite = TRUE)
-  
-  return(paste("Written to Cloud Storage bucket:", bucket_name, "file:", file_path))
+write_to_volume <- function(content) {
+  # Mount path for the volume
+  mount_path <- "/mnt/volume/sample-logfile.txt"
+  # Open the file in append mode and write the content
+  file_connection <- file(mount_path, open = "a")
+  writeLines(content, file_connection)
+  close(file_connection)
+  return(paste("Written to", mount_path))
 }
 #* @get /sum
 #* @param a First number
