@@ -8,7 +8,7 @@ library(logger)
 # The numbers will be passed as query parameters
 write_to_volume <- function(content) {
   # Mount path for the volume
-  mount_path <- "/mnt/my-volume/sample-logfile.txt"
+  mount_path <- "/mnt/my-volume/sample.txt"
   # Open the file in append mode and write the content
   file_connection <- file(mount_path, open = "a")
   writeLines(content, file_connection)
