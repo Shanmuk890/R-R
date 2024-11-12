@@ -1,6 +1,8 @@
 # Load the plumber package
 library(plumber)
-
+library(googleAuthR)
+library(googleCloudStorageR)
+library(logger)
 # Create the function that sums two numbers
 # This function will be exposed as an API endpoint
 # The numbers will be passed as query parameters
