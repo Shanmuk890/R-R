@@ -8,7 +8,7 @@ library(logger)
 # The numbers will be passed as query parameters
 write_to_cloud_storage <- function(content) {
   # Define your Cloud Storage bucket and file path
-  bucket_name <- "rlang"
+  bucket_name <- "radd"
   
   # Create a unique file name using a timestamp
   timestamp <- format(Sys.time(), "%Y-%m-%d_%H-%M-%S")
